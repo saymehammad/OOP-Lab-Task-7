@@ -1,0 +1,100 @@
+Python program to model a vehicle rental system
+
+# Parent class Vehicle
+class Vehicle:
+    def __init__(self, make: str, model: str):
+        """Constructor to initialize make and model of the vehicle."""
+        self.make = make
+        self.model = model
+
+    def display_info(self):
+        """Method to display the make and model of the vehicle."""
+        print(f"Make: {self.make}, Model: {self.model}")
+
+# Child class Car inheriting from Vehicle
+class Car(Vehicle):
+    def __init__(self, make: str, model: str, num_doors: int):
+        """Constructor to initialize make, model, and number of doors."""
+        super().__init__(make, model)
+        self.num_doors = num_doors
+
+    def additional_info(self):
+        """Method to display the number of doors of the car."""
+        print(f"Number of Doors: {self.num_doors}")
+
+# Child class LuxuryCar inheriting from Car
+class LuxuryCar(Car):
+    def __init__(self, make: str, model: str, num_doors: int, features: list):
+        """Constructor to initialize make, model, number of doors, and luxury features."""
+        super().__init__(make, model, num_doors)
+        self.features = features
+
+    def additional_info(self):
+        """Method to display the luxury features of the car."""
+        super().additional_info()  # Display number of doors from Car class
+        print(f"Luxury Features: {', '.join(self.features)}")
+
+
+# Example usage of the classes:
+
+# Creating a Vehicle object
+vehicle = Vehicle("Toyota", "Corolla")
+vehicle.display_info()
+
+# Creating a Car object
+car = Car("Honda", "Civic", 4)
+car.display_info()
+car.additional_info()
+
+# Creating a LuxuryCar object
+luxury_car = LuxuryCar("Mercedes", "S-Class", 4, ["Leather Seats", "Sunroof", "Advanced Audio System"])
+luxury_car.display_info()
+luxury_car.additional_info()
+
+
+Python program to model a company's employee hierarchy
+
+# Parent class Employee
+class Employee:
+    def __init__(self, name: str, position: str):
+        """Constructor to initialize the employee's name and position."""
+        self.name = name
+        self.position = position
+
+    def display_info(self):
+        """Method to display the employee's name and position."""
+        print(f"Name: {self.name}, Position: {self.position}")
+
+# Child class Manager inheriting from Employee
+class Manager(Employee):
+    def __init__(self, name: str, position: str, department: str):
+        """Constructor to initialize name, position, and department."""
+        super().__init__(name, position)
+        self.department = department
+
+    def additional_info(self):
+        """Method to display the additional information (department)."""
+        print(f"Department: {self.department}")
+
+# Child class Worker inheriting from Employee
+class Worker(Employee):
+    def __init__(self, name: str, position: str, hours_worked: int):
+        """Constructor to initialize name, position, and hours worked."""
+        super().__init__(name, position)
+        self.hours_worked = hours_worked
+
+    def additional_info(self):
+        """Method to display the additional information (hours worked)."""
+        print(f"Hours Worked: {self.hours_worked}")
+
+# Example usage of the classes:
+
+# Creating a Manager object
+manager = Manager("Alice Johnson", "Manager", "Sales")
+manager.display_info()
+manager.additional_info()
+
+# Creating a Worker object
+worker = Worker("Bob Smith", "Worker", 40)
+worker.display_info()
+worker.additional_info()
